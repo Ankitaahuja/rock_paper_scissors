@@ -1,0 +1,72 @@
+html {
+  font-size: 10px;
+  background: url(background.jpg) bottom center;
+  background-size: cover;
+}
+.welcome{
+  display: block;
+  margin-left: 25%;
+  margin-right: auto;
+  color:rgb(78, 23, 78);
+  font-size: xx-large;
+}
+#container{
+  margin-top: 7%;
+  display: block;
+  margin-bottom: 5%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+}
+.btn {
+    padding: 15px 25px;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+  }
+  
+  .btn:hover {background-color: #3e8e41}
+  
+  .btn:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+  }
+
+  #resetBtn {
+    margin-top:5%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+    padding: 15px 25px;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: rgb(175, 76, 101);
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+  }
+
+  #result{
+    color:Red;
+  }
+  #yourScore{
+    color:green;
+  }
+  #computerScore{
+    color:red;
+  }
+
+  h2{
+    font-size:x-large;
+    color:rgb(5, 5, 77);
+  }

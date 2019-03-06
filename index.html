@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+        <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+</head>
+
+<body>
+    <h1 class="welcome">Welcome to Rock-Paper-Scissors Game!</h1>
+    <div id="container">
+        <button class="btn" id="rockBtn" value="Rock">Rock</button>
+        <button class="btn" id="paperBtn" value="Paper">Paper</button>
+        <button class="btn" id="scissorsBtn" value="Scissors">Scissors</button>
+    </div>
+    <h2>Your Score: <span id="yourScore"></span></h2>
+    <h2>Computer Score: <span id="computerScore"></span></h2>
+    <h2>Tie:  <span id="tie"></span></h2>
+    <h1 id="result"></h1>
+<button id="resetBtn">Reset</button>
+
+    </div>
+</body>
+<script>
+    var computerScore = 0;
+    var playerScore = 0;
+    var tie = 0;
+    var playerSelection;
+
+    function computerPlay() {
+        var myArray = ['Rock', 'Scissors', 'Paper'];
+        var randamvalue = myArray[(Math.random() * myArray.length) | 0];
+        return randamvalue;
+    }
+
+    function playRound(playerSelection, computerSelection) {
+        console.log("computerSelection: ", computerSelection)
+        console.log("playerSelection: ", playerSelection)
+        if (playerSelection == "Rock" && computerSelection == "Scissors") {
+            playerScore++;
+            // document.getElementById('display').innerHTML = "You Win! Rock beats Scissors"
+            alert("You Win! Rock beats Scissors")
+        } else if (playerSelection == "Paper" && computerSelection == "Scissors") {
+            alert("You Loose! Scissors beats Paper")
+            computerScore++
+        } else if (playerSelection == "Scissors" && computerSelection == "Paper") {
+            alert("You Win! Scissors beats Paper")
+            playerScore++;
+        } else if (playerSelection == "Rock" && computerSelection == "Paper") {
+            alert("You Loose! Paper beats Rock")
+            computerScore++
+        } else if (playerSelection == "Paper" && computerSelection == "Rock") {
+            alert("You Win! Paper beats Rock")
+            playerScore++;
+        } else if (playerSelection == "Scissors" && computerSelection == "Rock") {
+            alert("You loose! Rock beats Scissors")
+            computerScore++
+        } else if (playerSelection == computerSelection) {
+            alert("its a draw, play again!")
+            tie++
+        } else tie++
+        console.log(computerScore, "computerScore")
+        console.log(playerScore, "playerScore")
+        console.log(tie, "tie")
+        document.getElementById("yourScore").innerHTML=playerScore;  
+        document.getElementById("computerScore").innerHTML=computerScore;  
+        document.getElementById("tie").innerHTML=tie;  
+
+        if (playerScore == 3) {
+            document.getElementById("result").innerHTML =`Congratulations! You defeated the computer by ${playerScore} points!`
+            reset()
+        } else if (computerScore == 3) {
+            document.getElementById("result").innerHTML =`The computer is champion, winning by a score by${playerScore} points!`
+            reset()
+        }
+    }
+
+
+    $("button").click(function () {
+        playerSelection = $(this).val();
+        playRound(playerSelection, computerPlay())
+    });
+   function reset(){
+    computerScore =0;
+    playerScore =0;
+    tie=0;
+    document.getElementById("yourScore").innerHTML=playerScore;  
+        document.getElementById("computerScore").innerHTML=computerScore;  
+        document.getElementById("tie").innerHTML=tie; 
+    }
+    $("#resetBtn").click(function () {
+        reset()
+    });
+</script>
+
+</html>
